@@ -35,6 +35,16 @@ ExternalProject_Add(alembic
 get_directory_property(has_parent_scope PARENT_DIRECTORY)
 if (has_parent_scope)
     # propagate link and include flags to parent scope
-    set(ALEMBIC_TREE_INCLUDE ${alembic_tree_install_directory}/include)
-    set(ALEMBIC_TREE_LINK_LIBS ${alembic_tree_install_directory}/lib/libAlembic.a)
+    set(ALEMBIC_TREE_INCLUDE
+            ${alembic_tree_install_directory}/include
+            ${alembic_tree_install_directory}/include/OpenEXR
+        PARENT_SCOPE)
+    set(ALEMBIC_TREE_LINK_LIBS
+            ${alembic_tree_install_directory}/lib/libAlembic.a
+            ${alembic_tree_install_directory}/lib/libHalf.a
+            ${alembic_tree_install_directory}/lib/libIex-2_2.a
+            ${alembic_tree_install_directory}/lib/libIexMath-2_2.a
+            ${alembic_tree_install_directory}/lib/libIlmThread-2_2.a
+            ${alembic_tree_install_directory}/lib/libImath-2_2.a
+        PARENT_SCOPE)
 endif()

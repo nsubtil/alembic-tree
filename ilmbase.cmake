@@ -8,6 +8,7 @@ ExternalProject_Add(ilmbase
                     CONFIGURE_COMMAND
                         ${CMAKE_COMMAND}
                         -DCMAKE_INSTALL_PREFIX=${alembic_tree_install_directory}
+                        -DBUILD_SHARED_LIBS=OFF
                         ${openexr_SOURCE}/IlmBase
                     LOG_DOWNLOAD 1
                     LOG_INSTALL 1)
