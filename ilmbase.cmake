@@ -1,14 +1,13 @@
 set(openexr_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/openexr)
-set(ilmbase_INSTALL ${CMAKE_BINARY_DIR}/install)
 
 # install ilmbase from openexr
 ExternalProject_Add(ilmbase
                     DOWNLOAD_COMMAND ""
                     SOURCE_DIR ${openexr_SOURCE}
-                    INSTALL_DIR ${ilmbase_INSTALL}
+                    INSTALL_DIR ${alembic_tree_install_directory}
                     CONFIGURE_COMMAND
                         ${CMAKE_COMMAND}
-                        -DCMAKE_INSTALL_PREFIX=${ilmbase_INSTALL}
+                        -DCMAKE_INSTALL_PREFIX=${alembic_tree_install_directory}
                         ${openexr_SOURCE}/IlmBase
                     LOG_DOWNLOAD 1
                     LOG_INSTALL 1)
