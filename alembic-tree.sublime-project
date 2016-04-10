@@ -1,0 +1,62 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"file_exclude_patterns": [
+				".settings",
+				".project",
+				".cproject"
+			],
+			"folder_exclude_patterns": [
+				"build*",
+				".settings"
+			]
+		}
+	],
+
+    "build_systems":
+    [
+        {
+            "name": "drosophila release",
+            "cmd": [ "/Users/nuno/remoter/client.py", "-t", "drosophila", "make", "-j12" ],
+            "working_dir": "${project_path}/build-release",
+            "file_regex": "^(.*?)[:(]([0-9]+)[:)].*?$",
+
+            "variants":
+            [
+                {
+                    "name": "sequential",
+                    "cmd": [ "/Users/nuno/remoter/client.py", "-t", "drosophila", "make" ],
+                    "working_dir": "${project_path}/build-release",
+                },
+                {
+                    "name": "clean",
+                    "cmd": [ "/Users/nuno/remoter/client.py", "-t", "drosophila", "make", "clean_cuda_depends", "clean" ],
+                    "working_dir": "${project_path}/build-release",
+                },
+            ]
+        },
+
+        {
+            "name": "drosophila debug",
+            "cmd": [ "/Users/nuno/remoter/client.py", "-t", "drosophila", "make", "-j12" ],
+            "working_dir": "${project_path}/build-debug",
+            "file_regex": "^(.*?)[:(]([0-9]+)[:)].*?$",
+
+            "variants":
+            [
+                {
+                    "name": "sequential",
+                    "cmd": [ "/Users/nuno/remoter/client.py", "-t", "drosophila", "make" ],
+                    "working_dir": "${project_path}/build-debug",
+                },
+                {
+                    "name": "clean",
+                    "cmd": [ "/Users/nuno/remoter/client.py", "-t", "drosophila", "make", "clean_cuda_depends", "clean" ],
+                    "working_dir": "${project_path}/build-debug",
+                },
+            ]
+        }
+    ],
+}

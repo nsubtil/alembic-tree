@@ -1,0 +1,9 @@
+[submodule "openexr"]
+	path = openexr
+	url = https://github.com/openexr/openexr
+[submodule "alembic"]
+	path = alembic
+	url = https://github.com/alembic/alembic.git
+[submodule "boost"]
+	path = boost
+	url = https://github.com/boostorg/boost.git
