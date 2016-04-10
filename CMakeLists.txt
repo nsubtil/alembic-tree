@@ -17,5 +17,6 @@ ExternalProject_Add(alembic
                         -DUSE_STATIC_BOOST=ON
                         -DUSE_TESTS=ON
                         -DALEMBIC_ILMBASE_LINK_STATIC=ON
+                        -DALEMBIC_SHARED_LIBS=OFF
                     LOG_DOWNLOAD 1
                     LOG_INSTALL 1)
