@@ -12,7 +12,8 @@ include("ilmbase.cmake")
 ExternalProject_Add(alembic
                     DEPENDS ilmbase
                     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/alembic
-                    CMAKE_ARGS
+                    CONFIGURE_COMMAND
+                        env CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} ${CMAKE_COMMAND}
                         -DCMAKE_INSTALL_PREFIX=${alembic_tree_install_directory}
                         -DCMAKE_CXXFLAGS=-Wno-deprecated-declarations
                         -DILMBASE_ROOT=${alembic_tree_install_directory}
@@ -29,6 +30,7 @@ ExternalProject_Add(alembic
                         -DALEMBIC_SHARED_LIBS=OFF
                         -DALEMBIC_LIB_USES_BOOST=OFF
                         -DALEMBIC_LIB_USES_TR1=ON
+                        ${CMAKE_CURRENT_SOURCE_DIR}/alembic
                     LOG_DOWNLOAD 1
                     LOG_INSTALL 1)
 

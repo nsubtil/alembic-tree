@@ -6,7 +6,7 @@ ExternalProject_Add(ilmbase
                     SOURCE_DIR ${openexr_SOURCE}
                     INSTALL_DIR ${alembic_tree_install_directory}
                     CONFIGURE_COMMAND
-                        ${CMAKE_COMMAND}
+                        env CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} ${CMAKE_COMMAND}
                         -DCMAKE_INSTALL_PREFIX=${alembic_tree_install_directory}
                         -DBUILD_SHARED_LIBS=OFF
                         ${openexr_SOURCE}/IlmBase
