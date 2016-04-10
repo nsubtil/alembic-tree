@@ -7,7 +7,7 @@ include("ilmbase.cmake")
 
 ExternalProject_Add(alembic
                     DEPENDS ilmbase
-                    SOURCE_DIR ${CMAKE_SOURCE_DIR}/alembic
+                    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/alembic
                     CMAKE_ARGS
                         -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/install
                         -DCMAKE_CXXFLAGS=-Wno-deprecated-declarations

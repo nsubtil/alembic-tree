@@ -1,4 +1,4 @@
-set(openexr_SOURCE ${CMAKE_SOURCE_DIR}/openexr)
+set(openexr_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/openexr)
 set(ilmbase_INSTALL ${CMAKE_BINARY_DIR}/install)
 
 # install ilmbase from openexr
